@@ -21,7 +21,7 @@ def get_response_body
 
     
 
-    # uri = URI.parse(URL)
+    uri = URI.get_requester(URL)
     # result = Net::HTTP.get_requester(uri)
     # result.body
 
