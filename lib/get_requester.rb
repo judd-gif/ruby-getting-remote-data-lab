@@ -7,34 +7,31 @@ require 'json'
 class GetRequester
 
 
-URL = 'https://learn-co-curriculum.github.io/json-site-example/endpoints/people.json'
 
-def initialize(get_requester)
-@get_requester = get_requester
 
-end
+    def initialize(url)
+        @url = url
+      end
+    
+    
+
 
 
 
 
 def get_response_body
-
+    
+    (Net::HTTP.get_response(URI.parse(@url))).body
     
 
-    uri = URI.get_requester(URL)
-    # result = Net::HTTP.get_requester(uri)
-    # result.body
 
 
 end
 
-# def parse_json
-#     results = JSON.parse(self.get_requester)
-#     results.collect do |result|
-#       result["agency"]  
+def parse_json
+    JSON.parse(get_response_body)
+  end
 
-# end 
-# end
 
 
 end
